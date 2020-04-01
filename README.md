@@ -34,7 +34,7 @@ Just register the service provider and rules are ready to use!
 
 ### Excusive validation rules
 
-Some unlikely-to-find validation rules available for you.
+Some hard-to-find validation rules available for you as if they where included in Laravel.
 
 
 Installation
@@ -105,21 +105,213 @@ Rules
 
 Here's a list of all available validation rules:
 
-
-- [float](#float)
 - [boolean_strict](#boolean_strict)
+- [camel_case](#camel_case)
+- [color_hex](#color_hex)
+- [date_gt_max](#date_gt_max)
+- [date_gt_min](#date_gt_min)
+- [date_lt_max](#date_lt_max)
+- [date_lt_min](#date_lt_min)
 - [document_number](#document_number)
+- [float](#float)
+- [kebab_case](#kebab_case)
 - [latitude](#latitude)
 - [longitude](#longitude)
 - [mac_address](#mac_address)
 - [owasp_password](#password)
-- [color_hex](#color_hex)
-- [date_diff_min](#date_diff_min)
-- [date_diff_max](#date_diff_max)
-- [snake_case](#snake_case)
-- [camel_case](#camel_case)
 - [pascal_case](#pascal_case)
-- [kebab_case](#kebab_case)
+- [snake_case](#snake_case)
+
+
+### boolean_strict
+
+Checks if value's data type is strictly bool.
+
+Synthax:
+
+```php
+$myValidator = Validator::make(
+	$values,
+	[
+		'active' => 'boolean_strict',
+	],
+	[
+		'active.boolean_strict' => 'Some message',
+	]
+);
+```
+
+MATCH examples:
+
+```php
+true
+false
+
+```
+
+
+NO MATCH examples:
+
+```php
+1
+0
+'true'
+'false'
+```
+
+### camel_case
+
+Checks if a string's format matches the camelCase notation.
+
+Synthax:
+
+```php
+$myValidator = Validator::make(
+	$values,
+	[
+		'var_name' => 'camel_case',
+	],
+	[
+		'var_name.camel_case' => 'Some message',
+	]
+);
+```
+
+MATCH examples:
+
+```php
+'camel',
+'camelCase'
+'camelCaseNotation'
+
+```
+
+
+NO MATCH examples:
+
+```php
+'Camel',
+'CamelCase',
+'camelcase',
+
+```
+
+
+### color_hex
+
+Checks if a string represents a hexadecimal color code.
+
+Synthax:
+
+```php
+$myValidator = Validator::make(
+	$values,
+	[
+		'color'  => 'color_hex',
+		'colors' => 'color_hex', // also works with an array of values
+	],
+	[
+		'color.color_hex' => 'Some message',
+	]
+);
+```
+
+MATCH examples:
+
+```php
+'#FFFFFF'
+'#FF3333'
+'#ffffff'
+'#5AD66A'
+
+```
+
+
+NO MATCH examples:
+
+```php
+'FFFFFF'
+'#FF33'
+'#FF3333A'
+'#'
+
+```
+
+
+### date_gt_min
+
+Checks if a date (value ) is greater than another date (first parameter) at least by the given seconds (second parameter).
+
+Synthax:
+
+```php
+$myValidator = Validator::make(
+	$values,
+	[
+		'start_at' => 'date_gt_min:2020-03-01 00:00:00,86400',
+	],
+	[
+		'start_at.date_gt_min' => 'Some message',
+	]
+);
+```
+
+
+### date_gt_max
+
+Checks if a date (value ) is greater than another date (first parameter) by the given seconds as much (second parameter).
+
+Synthax:
+
+```php
+$myValidator = Validator::make(
+	$values,
+	[
+		'start_at' => 'date_gt_max:2020-03-01 00:00:00,86400',
+	],
+	[
+		'start_at.date_gt_max' => 'Some message',
+	]
+);
+```
+
+
+### date_lt_min
+
+Checks if a date (value ) is lower than another date (first parameter) at least by the given seconds (second parameter).
+
+Synthax:
+
+```php
+$myValidator = Validator::make(
+	$values,
+	[
+		'start_at' => 'date_lt_min:2020-03-01 00:00:00,86400',
+	],
+	[
+		'start_at.date_lt_min' => 'Some message',
+	]
+);
+```
+
+
+### date_lt_max
+
+Checks if a date (value ) is lower than another date (first parameter) by the given seconds as much (second parameter).
+
+Synthax:
+
+```php
+$myValidator = Validator::make(
+	$values,
+	[
+		'start_at' => 'date_lt_max:2020-03-01 00:00:00,86400',
+	],
+	[
+		'start_at.date_lt_max' => 'Some message',
+	]
+);
+```
 
 
 ### float
@@ -132,10 +324,13 @@ Synthax:
 $myValidator = Validator::make(
 	$values,
 	[
-		'attribute_a' => 'float',
-		'attribute_b' => 'float|strict',
+		'price' => 'float',
+		'rate'  => 'float:strict',
 	],
-	$messages
+	[
+		'price.float' => 'Some message',
+		'rate.float'  => 'Some message',
+	]
 );
 ```
 
@@ -163,13 +358,5 @@ NO MATCH examples:
 ```php
 '0,00'
 '100,00'
+
 ```
-
-### document_number
-
-Checks if value is a floating point number. With the 'strict' parameter also checks the data type.
-
-Synthax:
-
-*'float'*
-*'float:strict'*
