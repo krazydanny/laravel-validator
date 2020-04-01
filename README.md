@@ -129,6 +129,8 @@ Checks if value's data type is strictly bool.
 
 Synthax:
 
+*boolean_strict*
+
 ```php
 $myValidator = Validator::make(
 	$values,
@@ -164,6 +166,8 @@ NO MATCH examples:
 Checks if a string's format matches the camelCase notation.
 
 Synthax:
+
+*camel_case*
 
 ```php
 $myValidator = Validator::make(
@@ -203,6 +207,8 @@ Checks if a string represents a hexadecimal color code.
 
 Synthax:
 
+*color_hex*
+
 ```php
 $myValidator = Validator::make(
 	$values,
@@ -240,9 +246,13 @@ NO MATCH examples:
 
 ### date_gt_min
 
-Checks if a date (value ) is greater than another date (first parameter) at least by the given seconds (second parameter).
+Checks if a date (value) is greater than another date (first parameter) at least by the given seconds (second parameter).
+
+Third parameter (optional) could be date's (value) format.
 
 Synthax:
+
+*date_gt_min:lower_date,diff_in_seconds,format*
 
 ```php
 $myValidator = Validator::make(
@@ -259,9 +269,13 @@ $myValidator = Validator::make(
 
 ### date_gt_max
 
-Checks if a date (value ) is greater than another date (first parameter) by the given seconds as much (second parameter).
+Checks if a date (value) is greater than another date (first parameter) by the given seconds as much (second parameter).
+
+Third parameter (optional) could be date's (value) format.
 
 Synthax:
+
+*date_gt_max:lower_date,diff_in_seconds,format*
 
 ```php
 $myValidator = Validator::make(
@@ -278,9 +292,13 @@ $myValidator = Validator::make(
 
 ### date_lt_min
 
-Checks if a date (value ) is lower than another date (first parameter) at least by the given seconds (second parameter).
+Checks if a date (value) is lower than another date (first parameter) at least by the given seconds (second parameter).
+
+Third parameter (optional) could be date's (value) format.
 
 Synthax:
+
+*date_lt_min:greater_date,diff_in_seconds,format*
 
 ```php
 $myValidator = Validator::make(
@@ -297,9 +315,13 @@ $myValidator = Validator::make(
 
 ### date_lt_max
 
-Checks if a date (value ) is lower than another date (first parameter) by the given seconds as much (second parameter).
+Checks if a date (value) is lower than another date (first parameter) by the given seconds as much (second parameter).
+
+Third parameter (optional) could be date's (value) format.
 
 Synthax:
+
+*date_lt_max:greater_date,diff_in_seconds,format*
 
 ```php
 $myValidator = Validator::make(
@@ -311,6 +333,51 @@ $myValidator = Validator::make(
 		'start_at.date_lt_max' => 'Some message',
 	]
 );
+```
+
+### document_number
+
+Checks if value is a valid reference number for any kind of document or paper.
+
+Synthax:
+
+```php
+$myValidator = Validator::make(
+	$values,
+	[
+		'id_doc' 	   => 'document_number',
+		'license_num'  => 'document_number',
+		'passport_num' => 'document_number',
+	],
+	[
+		'passport_num.document_number' => 'Some message',
+	]
+);
+```
+
+MATCH examples:
+
+```php
+'0'
+'100'
+'0.00'
+'0.01'
+'100.00'
+'100.01'
+
+```
+
+
+NO MATCH examples:
+
+```php
+'0'
+'100'
+'0.00'
+'0.01'
+'100.00'
+'100.01'
+
 ```
 
 
