@@ -81,8 +81,7 @@ We only have to register the service provider in our project and all available r
 
 
 ```php
-$app->register( KrazyDanny\Laravel\Validation\ServiceProvider::class
-);
+$app->register( KrazyDanny\Laravel\Validation\ServiceProvider::class );
 
 ```
 
