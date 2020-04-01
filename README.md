@@ -128,11 +128,20 @@ Checks if value is a floating point number. With the 'strict' parameter also che
 
 Synthax:
 
-*'float'*
-*'float:strict'*
+```php
+$myValidator = Validator::make(
+	$values,
+	[
+		'attribute_a' => 'float',
+		'attribute_b' => 'float|strict',
+	],
+	$messages
+);
+```
 
 MATCH examples:
 
+```php
 0
 100
 0.00
@@ -146,11 +155,15 @@ MATCH examples:
 '100.00'
 '100.01'
 
+```
+
+
 NO MATCH examples:
 
+```php
 '0,00'
 '100,00'
-
+```
 
 ### document_number
 
