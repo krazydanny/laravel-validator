@@ -636,11 +636,11 @@ $myValidator = Validator::make(
 MATCH examples:
 
 ```php
-'Camel'
-'Camelcase'
-'CamelCase'
-'CamelCaseN'
-'CamelCaseNotation'
+'Pascal'
+'Pascalcase'
+'PascalCase'
+'PascalCaseN'
+'PascalCaseNotation'
 
 ```
 
@@ -648,10 +648,10 @@ MATCH examples:
 NO MATCH examples:
 
 ```php
-'camel'
-'camelCase'
-'camelcase'
-'nCamelCase'
+'pascal'
+'pascalCase'
+'pascalcase'
+'nPascalCase'
 
 ```
 
