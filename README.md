@@ -79,7 +79,7 @@ $ composer require krazydanny/laravel-validator:v0.9-beta
 Usage
 -----
 
-We only have to register the service provider in our project and all available rules are ready to use :)
+We only have to register the service provider in our project and all new rules are ready to use :)
 
 
 ```php
