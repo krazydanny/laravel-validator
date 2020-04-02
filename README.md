@@ -351,7 +351,7 @@ Synthax:
 $myValidator = Validator::make(
 	$values,
 	[
-		'id_doc' 	   => 'document_number',
+		'id_doc'       => 'document_number',
 		'license_num'  => 'document_number',
 		'passport_num' => 'document_number',
 	],
