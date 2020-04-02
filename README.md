@@ -19,7 +19,7 @@ This package provides an Extended Laravel Validator with many useful additional 
 	- [Rules](#rules)
 	- [It is ours!](#it-is-ours!)
 
-
+<br>
 
 Main Advantages
 ---------------
@@ -36,6 +36,7 @@ Just register the service provider and rules are ready to use!
 
 Some hard-to-find validation rules available for you as if they where included in Laravel.
 
+<br>
 
 Installation
 ------------
@@ -43,7 +44,7 @@ Installation
 The only requirement is to have a Laravel or Lumen project. I asume your are already familiar with one of them, otherwise here are some docs about this great framework:
 
 - Laravel -> https://laravel.com
-- Lumen -> https://lumen.laravel.com
+- Lumen   -> https://lumen.laravel.com
 
 
 ### Laravel version Compatibility
@@ -73,6 +74,7 @@ The only requirement is to have a Laravel or Lumen project. I asume your are alr
 ```bash
 $ composer require krazydanny/laravel-validator:v0.9-beta
 ```
+<br>
 
 Usage
 -----
@@ -99,11 +101,14 @@ $myValidator = Validator::make(
 );
 ```
 
+<br>
+
 Rules
 -----
 
 Here's a list of all available validation rules:
 
+- [alpha_blank](#alpha_blank)
 - [boolean_strict](#boolean_strict)
 - [camel_case](#camel_case)
 - [color_hex](#color_hex)
@@ -162,7 +167,7 @@ NO MATCH examples:
 
 ### camel_case
 
-Checks if a string's format matches the camelCase notation.
+Checks if value is a string formatted using camelCase notation.
 
 Synthax:
 
@@ -185,6 +190,7 @@ MATCH examples:
 ```php
 'camel',
 'camelCase'
+'camelCaseN'
 'camelCaseNotation'
 
 ```
@@ -196,6 +202,7 @@ NO MATCH examples:
 'Camel',
 'CamelCase',
 'camelcase',
+'NCamelCase'
 
 ```
 
@@ -357,12 +364,15 @@ $myValidator = Validator::make(
 MATCH examples:
 
 ```php
-'0'
-'100'
-'0.00'
-'0.01'
-'100.00'
-'100.01'
+'123123123123'
+'abcabcabcabc'
+'a1b2c3d4e5f6'
+'20-30764053-0'
+'20/30764053/0'
+'20 30764053 0'
+'20/3076 405-30'
+'20/3076.405-30'
+'a1-b2c3d4e5f-6'
 
 ```
 
@@ -370,12 +380,13 @@ MATCH examples:
 NO MATCH examples:
 
 ```php
-'0'
-'100'
-'0.00'
-'0.01'
-'100.00'
-'100.01'
+'20--30764053-0'
+'20//30764053/0'
+'20  30764053 0'
+'20/3076..405-30'
+'N° 23123123312'
+'n° 23123123312'
+'n°23123123312'
 
 ```
 
@@ -424,5 +435,267 @@ NO MATCH examples:
 ```php
 '0,00'
 '100,00'
+
+```
+
+
+### kebab_case
+
+Checks if value is a string formatted using kebab-case notation.
+
+Synthax:
+
+*kebab_case*
+
+```php
+$myValidator = Validator::make(
+	$values,
+	[
+		'category' => 'kebab_case',
+	],
+	[
+		'category.kebab_case' => 'Some message',
+	]
+);
+```
+
+MATCH examples:
+
+```php
+'kebabcase',
+'kebab-case'
+'kebab-case-notation'
+
+```
+
+
+NO MATCH examples:
+
+```php
+'kebabCase',
+'kebab-Case',
+'Kebab-case',
+
+```
+
+### latitude
+
+Checks if value is valid latitude (between 90 and -90 degrees).
+
+Synthax:
+
+*latitude*
+
+```php
+$myValidator = Validator::make(
+	$values,
+	[
+		'lat' => 'latitude',
+	],
+	[
+		'lat.latitude' => 'Some message',
+	]
+);
+```
+
+MATCH examples:
+
+```php
+1
+90
+-90
+1.00,
+30.010203
+-67.50685
+90.000000
+-80.9999900000999
+
+```
+
+
+NO MATCH examples:
+
+```php
+91
+-91
+-100
+180.00
+90.00000000000001
+-90.00000000000001
+```
+
+### longitude
+
+Checks if value is valid longitude (between 180 and -180 degrees).
+
+Synthax:
+
+*longitude*
+
+```php
+$myValidator = Validator::make(
+	$values,
+	[
+		'lng' => 'longitude',
+	],
+	[
+		'lng.longitude' => 'Some message',
+	]
+);
+```
+
+MATCH examples:
+
+```php
+1
+-180
+180.00,
+30.010203
+-67.50685
+90.000000
+-179.9999900000999
+
+```
+
+
+NO MATCH examples:
+
+```php
+181
+-181
+188.99
+200.000
+180.00000000000001
+-180.00000000000001
+
+```
+
+
+### mac_address
+
+Checks if value is a valid IEEE 802 MAC Address.
+
+Synthax:
+
+*mac_address*
+
+```php
+$myValidator = Validator::make(
+	$values,
+	[
+		'mac_addr' => 'mac_address',
+	],
+	[
+		'mac_addr.mac_address' => 'Some message',
+	]
+);
+```
+
+MATCH examples:
+
+```php
+'00:00:00:00:00:00'
+'EE:EE:EE:EE:EE:EE'
+'A1:01:A2:02:A3:03'
+
+```
+
+
+NO MATCH examples:
+
+```php
+000000000000
+'A1:01:A2:02'
+'A1.01.A2.02.A3.03'
+'A1 01 A2 02 A3 03'
+'A1:01:A2:02:A3:03:'
+
+```
+
+
+### pascal_case
+
+Checks if value is a string formatted using PascalCase notation.
+
+Synthax:
+
+*pascal_case*
+
+```php
+$myValidator = Validator::make(
+	$values,
+	[
+		'class_name' => 'pascal_case',
+	],
+	[
+		'class_name.pascal_case' => 'Some message',
+	]
+);
+```
+
+MATCH examples:
+
+```php
+'Camel'
+'Camelcase'
+'CamelCase'
+'CamelCaseN'
+'CamelCaseNotation'
+
+```
+
+
+NO MATCH examples:
+
+```php
+'camel'
+'camelCase'
+'camelcase'
+'nCamelCase'
+
+```
+
+
+### snake_case
+
+Checks if value is a string formatted using camelCase notation.
+
+Synthax:
+
+*snake_case*
+
+```php
+$myValidator = Validator::make(
+	$values,
+	[
+		'param_name' => 'snake_case',
+	],
+	[
+		'param_name.snake_case' => 'Some message',
+	]
+);
+```
+
+MATCH examples:
+
+```php
+'snakecase'
+'snake_case'
+'snake_case_n'
+'n_snake_case'
+'snake_case_notation'
+
+```
+
+
+NO MATCH examples:
+
+```php
+'Snake_case'
+'snake_Case'
+'snake_CaseNotation'
+'N_snake_case'
+'snake_caseN'
+'snake_case_N'
 
 ```
