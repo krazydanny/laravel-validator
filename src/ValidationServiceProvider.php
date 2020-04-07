@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Providers;
+namespace KrazyDanny\Laravel\Validator;
 
 use Validator;
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\ServiceProvider as BaseProvider;
 
-class ValidationServiceProvider extends ServiceProvider {
+class ServiceProvider extends BaseProvider {
 
     /**
      * Register any application services.

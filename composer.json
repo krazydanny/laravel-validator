@@ -1,0 +1,17 @@
+{
+    "name": "krazydanny/laravel-validator",
+    "description": "An Extended Laravel Validator with many useful additional rules!",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel Spadafora",
+            "email": "danielspadafora@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {"KrazyDanny\\Laravel\\Validator\\": "src/"}
+    },
+    "require": {}
+}
