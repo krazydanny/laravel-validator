@@ -105,8 +105,8 @@ class ServiceProvider extends BaseProvider {
                     '/^-?[1-9]{1}([0-9]{1})?(.)[0-9]{1,14}$/', 
                     $value
                 )
-                && < 90
-                && > -90
+                && $value < 90
+                && $value > -90
             ){
                 return true;
             }
@@ -128,8 +128,8 @@ class ServiceProvider extends BaseProvider {
                     '/^-?[1-9]{1}([0-9]{1,2})?(.)[0-9]{1,14}$/',
                     $value
                 )
-                && < 180
-                && > -180
+                && $value < 180
+                && $value > -180
             ){
                 return true;
             }
@@ -206,7 +206,7 @@ class ServiceProvider extends BaseProvider {
 
             if ( $parameters[2] ?? false ) {
 
-                $dateTime DateTime::createFromFormat (
+                $dateTime = DateTime::createFromFormat (
                     $parameters[2],
                     $value
                 );
@@ -232,6 +232,18 @@ class ServiceProvider extends BaseProvider {
         {
             if ( !$parameters[0] )
                 return true;
+
+            if ( $parameters[2] ?? false ) {
+
+                $dateTime = DateTime::createFromFormat (
+                    $parameters[2],
+                    $value
+                );
+
+                $value = (string)$dateTime->format(
+                    'Y-m-d H:i:s'
+                );
+            }            
                             
             $d1 = strtotime( $value ); 
             $d2 = strtotime( $parameters[0] );
@@ -250,6 +262,18 @@ class ServiceProvider extends BaseProvider {
             if ( !$parameters[0] )
                 return true;
 
+            if ( $parameters[2] ?? false ) {
+
+                $dateTime = DateTime::createFromFormat (
+                    $parameters[2],
+                    $value
+                );
+
+                $value = (string)$dateTime->format(
+                    'Y-m-d H:i:s'
+                );
+            }
+
             $d1 = strtotime( $value ); 
             $d2 = strtotime( $parameters[0] ); 
 
@@ -267,6 +291,18 @@ class ServiceProvider extends BaseProvider {
             if ( !$parameters[0] )
                 return true;
 
+            if ( $parameters[2] ?? false ) {
+
+                $dateTime = DateTime::createFromFormat (
+                    $parameters[2],
+                    $value
+                );
+
+                $value = (string)$dateTime->format(
+                    'Y-m-d H:i:s'
+                );
+            }
+            
             $d1 = strtotime( $value ); 
             $d2 = strtotime( $parameters[0] ); 
 
