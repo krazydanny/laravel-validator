@@ -73,7 +73,7 @@ The only requirement is to have a Laravel or Lumen project. I asume your are alr
 ### Install the package via Composer
 
 ```bash
-$ composer require krazydanny/laravel-validator:^0.9.1-beta
+$ composer require krazydanny/laravel-validator:^0.9.2-beta
 ```
 <br>
 
