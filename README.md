@@ -17,7 +17,7 @@ This package provides an Extended Laravel Validator with many useful additional 
 		- [Install the package via Composer](#install-the-package-via-composer)
 	- [Usage](#usage)
 	- [Rules](#rules)
-	- [It is ours!](#it-is-ours!)
+
 
 <br>
 
