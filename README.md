@@ -659,7 +659,7 @@ NO MATCH examples:
 
 ### snake_case
 
-Checks if value is a string formatted using camelCase notation.
+Checks if value is a string formatted using snake_case notation.
 
 Synthax:
 
