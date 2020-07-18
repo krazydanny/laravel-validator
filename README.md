@@ -51,29 +51,29 @@ The only requirement is to have a Laravel or Lumen project. I asume your are alr
 
  Laravel  | Package
 :---------|:----------
- 5.6.x    | 0.9.2-beta
- 5.7.x    | 0.9.2-beta
- 5.8.x    | 0.9.2-beta
- 6.x      | 0.9.2-beta
- 7.x      | 0.9.2-beta
+ 5.6.x    | 1.0
+ 5.7.x    | 1.0
+ 5.8.x    | 1.0
+ 6.x      | 1.0
+ 7.x      | 1.0
 
 
 ### Lumen version Compatibility
 
  Lumen    | Package
 :---------|:----------
- 5.6.x    | 0.9.2-beta
- 5.7.x    | 0.9.2-beta
- 5.8.x    | 0.9.2-beta
- 6.x      | 0.9.2-beta
- 7.x      | 0.9.2-beta
+ 5.6.x    | 1.0
+ 5.7.x    | 1.0
+ 5.8.x    | 1.0
+ 6.x      | 1.0
+ 7.x      | 1.0
 
 
 
 ### Install the package via Composer
 
 ```bash
-$ composer require krazydanny/laravel-validator:^0.9.2-beta
+$ composer require krazydanny/laravel-validator
 ```
 <br>
 
