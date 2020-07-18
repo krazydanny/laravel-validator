@@ -119,6 +119,7 @@ Here's a list of all available validation rules:
 - [date_lt_min](#date_lt_min)
 - [document_number](#document_number)
 - [float](#float)
+- [geo_distance](#geo_distance)
 - [kebab_case](#kebab_case)
 - [latitude](#latitude)
 - [longitude](#longitude)
