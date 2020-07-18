@@ -440,6 +440,50 @@ NO MATCH examples:
 ```
 
 
+### geo_distance
+
+Checks if value is a floating point number. With the 'strict' parameter also checks the data type.
+
+Synthax:
+
+```php
+$myValidator = Validator::make(
+	$values,
+	[
+		'distance' => 'geo_distance',
+		'radius'   => 'geo_distance',
+	],
+	[
+		'distance.geo_distance' => 'Some message',
+		'radius.geo_distance'   => 'Some message',
+	]
+);
+```
+
+MATCH examples:
+
+```php
+0
+100
+1000
+'0'
+'1m'
+'100km'
+
+```
+
+
+NO MATCH examples:
+
+```php
+-1
+'-1m'
+'100k'
+
+```
+
+
+
 ### kebab_case
 
 Checks if value is a string formatted using kebab-case notation.
