@@ -397,6 +397,20 @@ class ServiceProvider extends BaseProvider {
             );
         } );
 
+
+        Validator::extend( 'geo_distance', function ( 
+            $attribute, 
+            $value, 
+            $parameters, 
+            $validator
+        ) 
+        {   
+            return preg_match(
+                '/^[0-9]+(km|m)?$/', 
+                $value
+            );
+        } );        
+
     }
 
 
