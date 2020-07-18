@@ -443,7 +443,7 @@ NO MATCH examples:
 
 ### geo_distance
 
-Checks if value is a floating point number. With the 'strict' parameter also checks the data type.
+Checks if value is an integer representing "earth distance". Value can specify the following units at the end of the value: "km" or "m"
 
 Synthax:
 
