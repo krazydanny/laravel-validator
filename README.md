@@ -109,6 +109,7 @@ Rules
 
 Here's a list of all available validation rules:
 
+- [array_of_regex](#array_of_regex)
 - [alpha_blank](#alpha_blank)
 - [boolean_strict](#boolean_strict)
 - [camel_case](#camel_case)
@@ -124,9 +125,11 @@ Here's a list of all available validation rules:
 - [latitude](#latitude)
 - [longitude](#longitude)
 - [mac_address](#mac_address)
-- [owasp_password](#password)
+- [object](#object)
 - [pascal_case](#pascal_case)
 - [snake_case](#snake_case)
+
+<br>
 
 
 ### array_of_regex
@@ -144,7 +147,7 @@ $myValidator = Validator::make(
 		'attributes' => 'array_of_regex:/(some_regex)/',
 	],
 	[
-		'attributes.object' => 'Some message',
+		'attributes.array_of_regex' => 'Some message',
 	]
 );
 ```
