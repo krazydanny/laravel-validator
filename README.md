@@ -129,6 +129,44 @@ Here's a list of all available validation rules:
 - [snake_case](#snake_case)
 
 
+### array_of_regex
+
+Iterates array values verifying each element matches a given regular expression.
+
+Synthax:
+
+*array_of_regex*
+
+```php
+$myValidator = Validator::make(
+	$values,
+	[
+		'attributes' => 'array_of_regex:/(some_regex)/',
+	],
+	[
+		'attributes.object' => 'Some message',
+	]
+);
+```
+
+MATCH examples:
+
+```php
+[ 'value A', 'value B', 'value C' ]
+[]
+
+```
+
+
+NO MATCH examples:
+
+```php
+'value A, value B, value C'
+"[ 'value A', 'value B', 'value C' ]"
+"[]"
+
+```
+
 ### boolean_strict
 
 Checks if value's data type is strictly bool.
@@ -658,6 +696,44 @@ NO MATCH examples:
 
 ```
 
+
+### object
+
+Checks if value is an object or an array representing an object.
+
+Synthax:
+
+*object*
+
+```php
+$myValidator = Validator::make(
+	$values,
+	[
+		'attributes' => 'object',
+	],
+	[
+		'attributes.object' => 'Some message',
+	]
+);
+```
+
+MATCH examples:
+
+```php
+[ 'fieldA' => 'value A', 'fieldB' => "value B" ]
+new stdClass
+(object)[ 'field' => 'value' ]
+
+```
+
+
+NO MATCH examples:
+
+```php
+[ 'value A', 'value B' ]
+"{}"
+
+```
 
 ### pascal_case
 
