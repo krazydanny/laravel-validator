@@ -146,7 +146,7 @@ class ServiceProvider extends BaseProvider {
         ) 
         {   
             return preg_match(
-                '/^([a-zA-Z]{1,}(( ){1}[a-zA-Z]{1,})?)$/',
+                "/^\p{L}{1,}((( |'){1}[\p{L}]{1,})?){1,3}$/",
                 $value
             );
         } );
@@ -409,7 +409,59 @@ class ServiceProvider extends BaseProvider {
                 '/^[0-9]+(km|m)?$/', 
                 $value
             );
-        } );        
+        } );
+
+
+        Validator::extend( 'array_of_regex', function ( 
+            $attribute, 
+            $value, 
+            $parameters, 
+            $validator
+        ) 
+        {   
+
+            foreach ( $value as $v ) {
+
+                if ( 
+                    !preg_match(
+                        $parameters[0] ?? null, 
+                        $v
+                    )
+                )
+                {
+                    return false;
+                }                
+            }
+
+            return true;
+        } );
+
+
+        Validator::extend( 'object', function ( 
+            $attribute, 
+            $value, 
+            $parameters, 
+            $validator
+        ) 
+        {   
+
+            if ( \is_array( $value ) ) {
+
+                if ( empty( $value ) )
+                    return false;
+
+                foreach ( $value as $key => $v ) {
+
+                    if ( !\is_string( $key ) )
+                        return false;
+                }
+
+                return true;
+            }
+            
+            return \is_object( $value );
+
+        } );
 
     }
 
