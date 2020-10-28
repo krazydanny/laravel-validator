@@ -73,9 +73,10 @@ class ServiceProvider extends BaseProvider {
                     if ( 
                         !preg_match(
                             '/^(\#){1}[A-Za-z0-9]{6}$/', 
-                            $value
+                            $v
                         )
-                    ){
+                    )
+                    {
                         return false;
                     }
                 }
