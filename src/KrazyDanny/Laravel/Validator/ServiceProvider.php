@@ -102,10 +102,6 @@ class ServiceProvider extends BaseProvider {
         {   
             if ( 
                 is_float($value) 
-                && preg_match(
-                    '/^-?[1-9]{1}([0-9]{1})?(.)[0-9]{1,14}$/', 
-                    $value
-                )
                 && $value <= 90
                 && $value >= -90
             ){
@@ -125,10 +121,6 @@ class ServiceProvider extends BaseProvider {
         {   
             if ( 
                 is_float($value) 
-                && preg_match(
-                    '/^-?[1-9]{1}([0-9]{1,2})?(.)[0-9]{1,14}$/',
-                    $value
-                )
                 && $value <= 180
                 && $value >= -180
             ){
