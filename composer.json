@@ -11,7 +11,9 @@
     ],
     "minimum-stability": "dev",
     "autoload": {
-        "psr-4": {"KrazyDanny\\Laravel\\Validator\\": "src/"}
+        "psr-4": {
+            "KrazyDanny\\Laravel\\Validator\\": "src/"
+        }
     },
     "require": {}
 }
