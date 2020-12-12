@@ -51,22 +51,22 @@ The only requirement is to have a Laravel or Lumen project. I asume your are alr
 
  Laravel  | Package
 :---------|:----------
- 5.6.x    | 1.0.3
- 5.7.x    | 1.0.3
- 5.8.x    | 1.0.3
- 6.x      | 1.0.3
- 7.x      | 1.0.3
+ 5.6.x    | 1.0.4
+ 5.7.x    | 1.0.4
+ 5.8.x    | 1.0.4
+ 6.x      | 1.0.4
+ 7.x      | 1.0.4
 
 
 ### Lumen version Compatibility
 
  Lumen    | Package
 :---------|:----------
- 5.6.x    | 1.0.3
- 5.7.x    | 1.0.3
- 5.8.x    | 1.0.3
- 6.x      | 1.0.3
- 7.x      | 1.0.3
+ 5.6.x    | 1.0.4
+ 5.7.x    | 1.0.4
+ 5.8.x    | 1.0.4
+ 6.x      | 1.0.4
+ 7.x      | 1.0.4
 
 
 
