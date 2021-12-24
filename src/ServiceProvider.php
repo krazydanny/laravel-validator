@@ -167,7 +167,7 @@ class ServiceProvider extends BaseProvider {
         ) 
         {   
             return preg_match(
-                '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9])(([^\n \t\v\R])(?!\2)){12,255}$/', 
+                '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(([^\n \t\v\R])(?!\2)){12,255}$/', 
                 $value
             );
         } );
